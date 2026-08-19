@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Balade à deux — Mastu</title>
+<meta name="description" content="Écoute « Balade à deux » de Mastu, avec compteur d'écoutes et de temps d'écoute.">
+<meta name="theme-color" content="#1a2b20">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/vinyl.jpg">
+<link rel="apple-touch-icon" href="assets/vinyl.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400;1,9..144,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sunlight" aria-hidden="true"></div>
+
+<main class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Mastu · Titre unique</p>
+    <h1 class="title">Balade à deux</h1>
+    <p class="subtitle">Une virée en cabriolet, des fleurs sur le capot, et une chanson qu'on rejoue sans compter — sauf qu'ici, on compte.</p>
+  </header>
+
+  <section class="stage" aria-label="Lecteur">
+    <svg class="sprig sprig-a" viewBox="0 0 120 160" aria-hidden="true">
+      <path d="M60 150 C 55 100, 65 60, 60 10" stroke="var(--gold)" stroke-width="2" fill="none" opacity="0.55"/>
+      <ellipse cx="60" cy="20" rx="9" ry="16" fill="var(--lavender)" opacity="0.6" transform="rotate(20 60 20)"/>
+      <ellipse cx="45" cy="45" rx="7" ry="13" fill="var(--teal)" opacity="0.5" transform="rotate(-30 45 45)"/>
+      <ellipse cx="72" cy="70" rx="7" ry="12" fill="var(--lavender)" opacity="0.45" transform="rotate(35 72 70)"/>
+    </svg>
+
+    <div class="turntable">
+      <div class="platter-shadow" aria-hidden="true"></div>
+
+      <button class="record" id="recordBtn" aria-pressed="false" aria-label="Lecture / pause de Balade à deux">
+        <span class="grooves"></span>
+        <span class="sheen"></span>
+        <span class="label">
+          <img src="assets/vinyl.jpg" alt="Un couple s'embrasse devant un cabriolet turquoise entouré de fleurs">
+        </span>
+        <span class="spindle"></span>
+      </button>
+
+      <div class="tonearm" id="tonearm">
+        <div class="arm-pivot"></div>
+        <div class="arm-rod">
+          <div class="arm-head"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deck">
+      <button class="play-btn" id="playBtn" aria-label="Lecture">
+        <svg id="iconPlay" viewBox="0 0 24 24" width="18" height="18"><path d="M6 4l14 8-14 8V4z" fill="currentColor"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" width="18" height="18" hidden><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg>
+      </button>
+
+      <div class="track">
+        <div class="time-row">
+          <span id="curTime">0:00</span>
+          <span id="durTime">0:00</span>
+        </div>
+        <input type="range" id="seek" class="seek" min="0" max="100" value="0" step="0.1" aria-label="Progression">
+      </div>
+
+      <div class="vol">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"/></svg>
+        <input type="range" id="volume" class="seek volume" min="0" max="1" value="1" step="0.01" aria-label="Volume">
+      </div>
+    </div>
+
+    <audio id="audio" src="assets/balade-a-deux.mp3" preload="metadata" loop="false"></audio>
+  </section>
+
+  <section class="stats" aria-label="Statistiques d'écoute">
+    <div class="stat">
+      <span class="stat-num" id="statCount">0</span>
+      <span class="stat-label">écoutes</span>
+    </div>
+    <div class="stat-divider" aria-hidden="true"></div>
+    <div class="stat">
+      <span class="stat-num" id="statTime">0h 00</span>
+      <span class="stat-label">temps d'écoute total</span>
+    </div>
+  </section>
+
+  <p class="bg-note">
+    La lecture continue tant que cet onglet reste ouvert — écran verrouillé compris, sur la plupart des téléphones — grâce aux commandes intégrées au verrouillage. Ajoute la page à ton écran d'accueil pour la meilleure tenue en arrière-plan. Un téléphone réellement <em>éteint</em> ne peut en revanche rien lire : la compteuse reprend là où elle s'est arrêtée dès que tu rouvres la page.
+  </p>
+
+  <section class="gallery" aria-label="Photos">
+    <figure class="poly poly-1">
+      <img src="assets/photo-2.jpg" alt="Un homme assis dans le cabriolet, entouré de fleurs">
+    </figure>
+    <figure class="poly poly-2">
+      <img src="assets/photo-3.jpg" alt="Un homme assis dans l'herbe contre le cabriolet, sous les arbres">
+    </figure>
+    <figure class="poly poly-3">
+      <img src="assets/photo-4.jpg" alt="Un homme debout devant le cabriolet, veste en jean à la main">
+    </figure>
+  </section>
+
+  <footer class="site-footer">
+    <p>Balade à deux — Mastu · site perso, compteur local à cet appareil</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
